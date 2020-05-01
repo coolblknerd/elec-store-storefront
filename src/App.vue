@@ -46,7 +46,7 @@ export default {
       drawer: true,
       items: [
         { title: "Dashboard", path: "/" },
-        { title: "Products", path: "/test" }
+        { title: "Products", path: "/products" }
       ]
     }
   }
