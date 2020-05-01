@@ -1,45 +1,24 @@
 <template>
   <v-app>
-    <v-sheet
-      class="overflow-hidden"
-      style="position: relative;"
-    >
-      <v-container class="fill-height">
-        <v-row>
-        <v-btn @click="drawer = !drawer">
-          Toggle
-        </v-btn>
-        </v-row>
-      <router-view></router-view>
-      </v-container>
-      <v-navigation-drawer
-      v-model="drawer"
+    <NavigationBar 
+      :items="items"
       :color="color"
-      absolute
-      temporary
-    >
-          <v-list nav>
-            <v-list-item
-            v-for="item in items"
-            :key="item.title"
-            :to="item.path"
-            link
-            >
-
-                <v-list-item-content>
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
-          </v-list>
-      </v-navigation-drawer>
-    </v-sheet>
+      :drawer="drawer"
+    />
+    <v-content>
+            <router-view></router-view>
+    </v-content>
   </v-app>
 </template>
 
 <script>
+import NavigationBar from "@/components/NavigationBar"
 
 export default {
   name: 'App',
+  components: {
+    NavigationBar
+  },
   data() {
     return {
       color: "primary",
